@@ -6,19 +6,13 @@ int main() {
   cin.tie(NULL);
   cout.tie(NULL);
 
-  int st, sm, et, em, fm, ft;
-  cin >> st >> sm >> et >> em;
-  ft = et - st;
-  if (ft < 0)
-      ft = 24 + et - st;
-  fm = em - sm;
-  if (fm < 0) {
-    fm = 60 + em - sm;
-    --ft;
-  }
-  if (et == st && em == sm)
-    cout << "O JOGO DUROU 24 HORA(S) E 0 MINUTO(S)\n";
-  else
-    cout << "O JOGO DUROU " << ft << " HORA(S) E " << fm << " MINUTO(S)\n";
+  int hi, hf, mi, mf;
+  cin >> hi >> mi >> hf >> mf;
+  int m = (hf * 60 + mf) - (hi * 60 + mi);
+  if (m <= 0)
+    m += 1440;
+  int h = m / 60;
+  m %= 60;
+  cout << "O JOGO DUROU " << h << " HORA(S) E " << m << " MINUTO(S)\n";
   return 0;
 }
